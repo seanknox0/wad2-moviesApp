@@ -5,6 +5,7 @@ import FavoriteMoviesPage from './pages/favoriteMoviesPage'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
+import MovieReviewPage from "./pages/movieReviewPage";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
+          <Route path="/reviews/:id" component={MovieReviewPage} />
         </Switch>
       </div>
     </div>
