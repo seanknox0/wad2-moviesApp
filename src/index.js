@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom" 
 import FavoriteMoviesPage from './pages/favoriteMoviesPage'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
+import UpcomingMoviesPage from "./pages/upcomingMoviesPage"
 import MoviePage from './pages/movieDetailsPage'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
@@ -15,6 +16,7 @@ const App = () => {
     <SiteHeader />      {/* New Header  */}
       <div className="container-fluid">
         <Switch>
+          <Route path="/movies/upcoming" component={UpcomingMoviesPage} />
           <Route path="/reviews/:id" component={MovieReviewPage} /> 
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />

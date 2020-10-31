@@ -1,7 +1,6 @@
 import MovieHeader from '../src/components/headerMovie'
 import MovieDetails from "../src/components/movieDetails";
 import MovieList from "../src/components/movieList";
-import MoviesHeader from "../src/components/headerMovieList";
 import FilterControls from "../src/components/filterControls";
 import React from "react";
 import { storiesOf } from "@storybook/react";
@@ -101,7 +100,7 @@ storiesOf("Home Page/FilterControls", module)
   .add("default", () => <FilterControls /> )
 
 storiesOf("Home Page/Header", module).add("default", () => (
-  <MoviesHeader numMovies={10} />
+  <MovieHeader numMovies={10} />
 ));
 
 storiesOf("Home Page/MovieList", module)
