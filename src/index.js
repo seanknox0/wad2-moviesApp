@@ -25,11 +25,11 @@ const App = () => {
           </li>
         </ul>
         <Switch>
+          <Route path="/reviews/:id" component={MovieReviewPage} /> 
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
-          <Route path="/reviews/:id" component={MovieReviewPage} />
         </Switch>
       </div>
     </div>
