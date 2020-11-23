@@ -1,10 +1,14 @@
 h4 {
     padding-top: 5px;
   }
-  span {
+span {
     margin-right: 10px;
   }
   
-  input {
+span {
+    margin-left: 10px;
+  }
+
+input {
     margin-right: 100px;
   }
