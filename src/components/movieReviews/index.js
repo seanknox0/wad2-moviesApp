@@ -24,7 +24,7 @@ export default ({ movie }) => {
         {reviews.map(r => {
             return (
               <tr key={r.id}>
-                <td>{r.author}</td>
+                <td>{r.author_details.name}</td>
                 <td>{excerpt(r.content)}</td>
                 <td>
                   {" "}
