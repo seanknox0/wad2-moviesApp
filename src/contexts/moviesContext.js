@@ -18,7 +18,7 @@ const reducer = (state, action) => {
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
-        popular: state.movies.map((m) =>
+        popular: state.popular.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
         upcoming: [...state.upcoming],
@@ -39,7 +39,7 @@ const reducer = (state, action) => {
             ? { ...m, review: action.payload.review }
             : m
         ),
-        popular: state.movies.map((m) =>
+        popular: state.popular.map((m) =>
           m.id === action.payload.movie.id
             ? { ...m, review: action.payload.review }
             : m

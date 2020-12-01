@@ -5,7 +5,6 @@ import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import Credits from "../components/movieCredits";
 import useMovie from "../hooks/useMovie";
-import MovieHeader from "../components/headerMovie"
 
 const MoviePage = props => {
   const { id } = props.match.params;
@@ -56,12 +55,12 @@ const MoviePage = props => {
           </div>
         </div>
         <Route
-          path={`/movies/:id/credits`}
-          render={props => <Credits movie={movie} {...props} />}
-        />
-        <Route
           path={`/movies/:id/reviews`}
           render={props => <MovieReviews movie={movie} {...props} />}
+        />
+        <Route
+          path={`/movies/:id/credits`}
+          render={props => <Credits movie={movie} {...props} />}
         />
       </>
     ) : (

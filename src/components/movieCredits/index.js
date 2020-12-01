@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { getCredits } from "../../api/tmdb-api";
+import { getCreditsCast } from "../../api/tmdb-api";
+import { getCreditsCrew } from "../../api/tmdb-api";
+import "./movieCredits.css";
 
 export default ({ movie }) => {
-    const [credits, setCredits] = useState([]);
+    const [cast, setCreditsCast] = useState([]);
+    const [crew, setCreditsCrew] = useState([]);
     
     useEffect(() => {
-    getCredits(movie.id).then(credits => {
-      setCredits(credits);
-    });
-  }, []);
+      getCreditsCast(movie.id).then(cast => {
+      setCreditsCast(cast);
+    });},[]);
+    
+    useEffect(() => {
+      getCreditsCrew(movie.id).then(crew => {
+      setCreditsCrew(crew);
+    });},[]);
   
   return (
  <div class="row"> 
@@ -21,36 +28,37 @@ export default ({ movie }) => {
       </tr>
     </thead>
     <tbody>
-      {credits.map(c => {
+      {cast.map(cast => {
           return (
-            <tr key={c.id}>
-              <td>{c.cast.name}</td>
-              <td>{c.cast.character}</td>
+            <tr key={cast.id}>
+              <td>{cast.name}</td>
+              <td>{cast.character}</td>
             </tr>
           );
         })}
     </tbody>
   </table>
+  </div>
+
   <div class="column">
-  <table className="table table-striped table-bordered table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Crew</th>
-      <th scope="col">Job</th>
-    </tr>
-  </thead>
-  <tbody>
-    {credits.map(c => {
-        return (
-          <tr key={c.id}>
-            <td>{c.crew.name}</td>
-            <td>{c.crew.job}</td>
-          </tr>
-        );
-    })}
-  </tbody>
-</table>
-</div>
-</div>
-</div>
-)};
+    <table className="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Crew</th>
+        <th scope="col">Job on Set</th>
+      </tr>
+    </thead>
+    <tbody>
+      {crew.map(crew => {
+          return (
+            <tr key={crew.id}>
+              <td>{crew.name}</td>
+              <td>{crew.job}</td>
+            </tr>
+          );
+        })}
+    </tbody>
+  </table>
+  </div>
+  </div>
+);}
