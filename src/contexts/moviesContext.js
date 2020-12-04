@@ -68,8 +68,10 @@ const MoviesContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], popular: [], toprated: [] });
 
   const addToFavorites = (movieId) => {
-    const index = state.movies.map((m) => m.id).indexOf(movieId);
-    dispatch({ type: "add-favorite", payload: { movie: state.movies[index] } });
+    const indexMovies = state.movies.map((m) => m.id).indexOf(movieId);
+    const indexPopular = state.popular.map((m) => m.id).indexOf(movieId);
+    const indexToprated = state.toprated.map((m) => m.id).indexOf(movieId);
+    dispatch({ type: "add-favorite", payload: { movie: state.movies[indexMovies], movie: state.popular[indexPopular], movie: state.movies[indexToprated] } });
   };
 
   const addToWatchList = (movieId) => {
