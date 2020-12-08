@@ -25,8 +25,8 @@ const reducer = (state, action) => {
       };
     case "add-favorite-popular":
       return {
-        popular: state.popular.map((p) =>
-          p.id === action.payload.movie.id ? { ...p, favorite: true } : p
+        popular: state.popular.map((m) =>
+          m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
         movies: [...state.movies],
         toprated: [...state.toprated],
@@ -34,8 +34,8 @@ const reducer = (state, action) => {
       };
     case "add-favorite-toprated":
       return {
-        toprated: state.toprated.map((t) =>
-          t.id === action.payload.movie.id ? { ...t, favorite: true } : t
+        toprated: state.toprated.map((m) =>
+          m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
         movies: [...state.movies],
         popular: [...state.popular],
@@ -66,10 +66,10 @@ const reducer = (state, action) => {
       };
     case "add-review-popular":
       return {
-        popular: state.popular.map((p) =>
-          p.id === action.payload.movie.id
-            ? { ...p, review: action.payload.review }
-            : p
+        popular: state.popular.map((m) =>
+          m.id === action.payload.movie.id
+            ? { ...m, review: action.payload.review }
+            : m
         ),
         toprated: [...state.toprated],
         upcoming: [...state.upcoming],
@@ -77,10 +77,10 @@ const reducer = (state, action) => {
       };
     case "add-review-toprated":
       return {
-        toprated: state.toprated.map((t) =>
-          t.id === action.payload.movie.id
-            ? { ...t, review: action.payload.review }
-            : t
+        toprated: state.toprated.map((m) =>
+          m.id === action.payload.movie.id
+            ? { ...m, review: action.payload.review }
+            : m
         ),
         popular: [...state.popular],
         upcoming: [...state.upcoming],
@@ -102,12 +102,12 @@ const MoviesContextProvider = (props) => {
   };
 
   const addToFavoritesPopular = (movieId) => {
-    const indexPopular = state.popular.map((p) => p.id).indexOf(movieId);
+    const indexPopular = state.popular.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-favorite-popular", payload: { movie: state.popular[indexPopular]} });
   };
 
   const addToFavoritesToprated = (movieId) => {
-    const indexToprated = state.toprated.map((t) => t.id).indexOf(movieId);
+    const indexToprated = state.toprated.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-favorite-toprated", payload: { movie: state.toprated[indexToprated]} });
   };
 
@@ -164,8 +164,12 @@ const MoviesContextProvider = (props) => {
         popular: state.popular,
         toprated: state.toprated,
         addToWatchList: addToWatchList,
-        addToFavorites: addToFavorites,
-        addReview: addReview,
+        addToFavoritesMovies: addToFavoritesMovies,
+        addToFavoritesPopular: addToFavoritesPopular,
+        addToFavoritesToprated: addToFavoritesToprated,
+        addReviewMovies: addReviewMovies,
+        addReviewPopular: addReviewPopular,
+        addReviewToprated: addReviewToprated
       }}
     >
       {props.children}
