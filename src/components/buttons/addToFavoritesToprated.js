@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Button } from 'semantic-ui-react';
 import {MoviesContext} from "../../contexts/moviesContext";
 
 const AddToFavoriteButtonToprated = ({ movie }) => {
@@ -9,13 +10,12 @@ const AddToFavoriteButtonToprated = ({ movie }) => {
     context.addToFavoritesToprated(movie.id);
   };
   return (
-    <button
-      type="button"
-      className="btn w-100 btn-success"
+    <Button
       onClick={handleAddToFavoriteToprated}
     >
       Add to Favorites
-    </button>
+
+    </Button>
   );
 };
 

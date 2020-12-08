@@ -1,4 +1,5 @@
 import React, {useContext } from "react";
+import { Button, Form, Segment, Header } from 'semantic-ui-react'
 import "./reviewForm.css";
 import useForm from "react-hook-form";
 import {MoviesContext} from '../../contexts/moviesContext'
@@ -14,53 +15,40 @@ const ReviewForm = ({ movie, history }) => {
   };
 
   return (
-    <form className="form bg-dark text-light" onSubmit={handleSubmit(onSubmit)}>
-      <h3>Add your review</h3>
-      <div className="form-group">
-        <input
-          type="text"
+  <Segment inverted>
+  <Header as="h3">Add your review</Header>
+    <Form inverted onSubmit={handleSubmit(onSubmit)}>
+        <Form.Input
           className="form-control"
+          fluid label='Author'
           placeholder="Author"
           defaultValue={movie.review ? movie.review.author : ""}
-          name="author"
-          ref={register({ required: "Author name required" })}
+          ref={register({ required: "Author name required" })} />
+        <Form.TextArea 
+        fluid label='Write your Review...' 
+        placeholder='Write your Review...'
+        rows="10"
+        className="form-control"
+        defaultValue={movie.review ? movie.review.content : ""}
+        ref={register({
+          required: "No review text",
+          minLength: { value: 10, message: "Review is too short" }
+        })}
         />
-      </div>
-      {errors.author && <p className=" text-white">{errors.author.message} </p>}
-      <div className="form-group">
-        <textarea
-          rows="10"
-          type="text"
-          className="form-control"
-          placeholder="Write your review"
-          defaultValue={movie.review ? movie.review.content : ""}
-          name="content"
-          ref={register({
-            required: "No review text",
-            minLength: { value: 10, message: "Review is too short" }
-          })}
-        />
-      </div>
-      {errors.content && (
-        <p className="text-white">{errors.content.message} </p>
-      )}
-
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
-      <button
-        type="reset"
-        className="btn btn-primary reset"
-        onClick={() => {
-          reset({
-            author: "",
-            content: ""
-          });
-        }}
+      <Button type='submit'>Submit</Button>
+      <Button 
+      type="reset"
+      onClick={() => {
+        reset({
+          author: "",
+          content: ""
+        });
+      }}
       >
-        Reset
-      </button>
-    </form>
+        Clear
+      </Button>
+    </Form>
+  </Segment>
   );
 };
 

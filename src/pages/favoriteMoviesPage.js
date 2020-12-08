@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import MovieListPageTemplate from "../components/templateMovieListPage";
-import AddReviewButton from '../components/buttons/addReview'
+import ReviewButton from '../components/buttons/addReview'
 import {MoviesContext} from '../contexts/moviesContext'
 
 const FavoriteMoviesPage = props => {
@@ -13,7 +13,7 @@ const FavoriteMoviesPage = props => {
     <MovieListPageTemplate
       movies={favoritesMovies}
       title={"Favorite Movies"}
-      action={movie => <AddReviewButton movie={movie} />}
+      action={movie => <ReviewButton movie={movie} />}
     />
   );
 };

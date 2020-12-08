@@ -1,66 +1,40 @@
 import React from "react";
+import { List, Segment, Header } from 'semantic-ui-react';
 import "./movieDetails.css";
 
 export default ({ movie }) => {
   return (
     <>
-      <h4>Overview</h4>
-      <p>{movie.overview}</p>
-      <ul className="list-group list-group-horizontal">
-        <li key="ruh" className="list-group-item list-group-item-dark">
-          Runtime (min.)
-        </li>
-        <li key="rut" className="list-group-item ">
-          {movie.runtime}
-        </li>
-        <li key="rdh" className="list-group-item list-group-item-dark">
-          Release Date
-        </li>
-        <li key="rdv" className="list-group-item ">
-          {movie.release_date}
-        </li>
-      </ul>
-
-      <ul className="list-group list-group-horizontal">
-        <li key="gh" className="list-group-item list-group-item-dark">
-          Genres
-        </li>
-        {movie.genres.map(g => (
+      <Header as="h2">Overview</Header>
+      <Segment>{movie.overview}</Segment>
+      <List>
+       <List.Item><b>Runtime (min.): </b>{movie.runtime}</List.Item>
+       <List.Item><b>Release Date: </b>{movie.release_date}</List.Item>
+       <List.Item><b>Genres: </b>{movie.genres.map(g => (
           <li key={g.name} className="list-group-item">
             {g.name}
           </li>
         ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="slh" className="list-group-item list-group-item-dark">
-          Spoken Languages
-        </li>
-        {movie.spoken_languages.map(lang => (
+       </List.Item>
+       <List.Item><b>Spoken Languages: </b>{movie.spoken_languages.map(lang => (
           <li key={lang.name} className="list-group-item">
             {lang.name}
           </li>
         ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="pch" className="list-group-item list-group-item-dark">
-          Production Companies
-        </li>
-        {movie.production_companies.map(pc => (
+       </List.Item>
+       <List.Item><b>Production Companies: </b>{movie.production_companies.map(pc => (
           <li key={pc.name} className="list-group-item">
             {pc.name}
           </li>
         ))}
-        </ul>
-        <ul className="list-group list-group-horizontal">
-        <li key="pcou" className="list-group-item list-group-item-dark">
-          Production Countries
-        </li>
-        {movie.production_countries.map(pco => (
+       </List.Item>
+       <List.Item><b>Production Countries: </b>{movie.production_countries.map(pco => (
           <li key={pco.name} className="list-group-item">
             {pco.name}
           </li>
         ))}
-      </ul>
+       </List.Item>
+      </List>
     </>
   );
 };

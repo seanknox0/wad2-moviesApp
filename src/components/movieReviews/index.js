@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Table } from "semantic-ui-react";
 import { getMovieReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
 
@@ -12,21 +13,22 @@ export default ({ movie }) => {
     });
   }, []);
   return (
-    <table className="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Author</th>
-          <th scope="col">Excerpt</th>
-          <th scope="col">More</th>
-        </tr>
-      </thead>
-      <tbody>
+   <div class="row"> 
+    <Table celled inverted selectable>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>Author</Table.HeaderCell>
+          <Table.HeaderCell>Excerpt</Table.HeaderCell>
+          <Table.HeaderCell>More</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
         {reviews.map(r => {
             return (
-              <tr key={r.id}>
-                <td>{r.author_details.name}</td>
-                <td>{excerpt(r.content)}</td>
-                <td>
+              <Table.Row key={r.id}>
+                <Table.Cell>{r.author_details.name}</Table.Cell>
+                <Table.Cell>{excerpt(r.content)}</Table.Cell>
+                <Table.Cell>
                   {" "}
                   <Link
                     to={{
@@ -39,11 +41,12 @@ export default ({ movie }) => {
                   >
                     Full Review
                   </Link>
-                </td>
-              </tr>
+                </Table.Cell>
+              </Table.Row>
             );
           })}
-      </tbody>
-    </table>
+      </Table.Body>
+    </Table>
+    </div>
   );
 };

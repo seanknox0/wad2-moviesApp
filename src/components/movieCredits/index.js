@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Table } from "semantic-ui-react";
 import { getCreditsCast } from "../../api/tmdb-api";
 import { getCreditsCrew } from "../../api/tmdb-api";
 import "./movieCredits.css";
@@ -20,45 +21,45 @@ export default ({ movie }) => {
   return (
  <div class="row"> 
   <div class="column">
-    <table className="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Cast (Actors)</th>
-        <th scope="col">Character(s) Played</th>
-      </tr>
-    </thead>
-    <tbody>
+    <Table celled inverted selectable>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell scope="col">Cast (Actors)</Table.HeaderCell>
+        <Table.HeaderCell scope="col">Character(s) Played</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {cast.map(cast => {
           return (
-            <tr key={cast.id}>
-              <td>{cast.name}</td>
-              <td>{cast.character}</td>
-            </tr>
+            <Table.Row key={cast.id}>
+              <Table.Cell>{cast.name}</Table.Cell>
+              <Table.Cell>{cast.character}</Table.Cell>
+            </Table.Row>
           );
         })}
-    </tbody>
-  </table>
+    </Table.Body>
+    </Table>
   </div>
 
   <div class="column">
-    <table className="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Crew</th>
-        <th scope="col">Job on Set</th>
-      </tr>
-    </thead>
-    <tbody>
+    <Table celled inverted selectable>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell scope="col">Crew</Table.HeaderCell>
+        <Table.HeaderCell scope="col">Job on Set</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
       {crew.map(crew => {
           return (
-            <tr key={crew.id}>
-              <td>{crew.name}</td>
-              <td>{crew.job}</td>
-            </tr>
+            <Table.Row key={crew.id}>
+              <Table.Cell>{crew.name}</Table.Cell>
+              <Table.Cell>{crew.job}</Table.Cell>
+            </Table.Row>
           );
         })}
-    </tbody>
-  </table>
+    </Table.Body>
+    </Table>
   </div>
   </div>
 );}

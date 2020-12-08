@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Dropdown, Icon, Menu } from 'semantic-ui-react'
 import "./filterControls.css";
 import { GenresContext } from '../../contexts/genresContext' 
 
@@ -41,5 +42,36 @@ const FilterControls = props => {
     </div>
   );
 };
+/*
+<div>
+    <Menu attached='top'>
+      <Dropdown>
+        Genre
+        <Dropdown.Menu id="genre" onChange={handleGenreChange}>
+            {context.genres.map(genre => {
+              return (
+                <Dropdown.Item key={genre.id} value={genre.id}>
+                  {genre.name}
+                </Dropdown.Item>
+              );
+              })}
+        </Dropdown.Menu>
+      </Dropdown>
+      <Menu.Menu position='right'>
+        <div className='ui right aligned category search item'>
+          <div className='ui transparent icon input'>
+          <span>List Filtering:</span>
+          <input
+            type="text"
+            placeholder="Title Search..."
+            onChange={handleTextChange}
+           />
+            <i className='search link icon' />
+          </div>
+        </div>
+      </Menu.Menu>
+    </Menu>
+  </div>
+  */
 
 export default FilterControls;

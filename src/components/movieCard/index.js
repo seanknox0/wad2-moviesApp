@@ -1,4 +1,5 @@
 import React from "react";
+import { Card, Icon, Image } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import "./movieCard.css";
 import "../../globals/fontawesome";
@@ -9,8 +10,9 @@ const MovieCard = ({movie, action}) => {
   return (
     <div className="col-sm-3">
       <div className="card bg-white">
+      <Card>
       <Link to={`/movies/${movie.id}`}>
-        <img
+        <Image
           className="card-img-tag center "
           alt={movie.title}
           src={
@@ -21,19 +23,24 @@ const MovieCard = ({movie, action}) => {
         />
         </Link>
         <div className="card-body">
-          <h4 className="card-title ">{movie.title}</h4>
-          <p>
+          <Card.Content>
+          <Card.Header className="card-title ">{movie.title}</Card.Header>
+          <Card.Meta>
             <FontAwesomeIcon icon={["fas", "calendar"]} />
             <span> {movie.release_date}</span>
-          </p>
-          <p>
+          </Card.Meta>
+          <Card.Description>
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {movie.vote_average}</span>
-          </p>
-        </div>
-        <div className="card-footer">
+          </Card.Description>
+          </Card.Content>
+          </div>
+          <Card.Content extra>
+          <div className="card-footer">
            {action(movie)}
-        </div>
+          </div>
+          </Card.Content>
+        </Card>
       </div>
     </div>
   );
