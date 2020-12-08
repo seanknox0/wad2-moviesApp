@@ -15,13 +15,13 @@ const SiteHeader = () => {
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/popular">
-              Popular
+            <Link className="nav-link text-white" to="/movies/toprated">
+              Top Rated
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/toprated">
-              Top Rated
+            <Link className="nav-link text-white" to="/movies/popular">
+              Popular
             </Link>
           </li>
           <li className="nav-item">
