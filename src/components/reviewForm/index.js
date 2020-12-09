@@ -17,18 +17,13 @@ const ReviewForm = ({ movie, history }) => {
   return (
   <Segment inverted>
   <Header as="h3">Add your review</Header>
-    <Form inverted onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Input
-          className="form-control"
-          fluid label='Author'
           placeholder="Author"
           defaultValue={movie.review ? movie.review.author : ""}
           ref={register({ required: "Author name required" })} />
         <Form.TextArea 
-        fluid label='Write your Review...' 
         placeholder='Write your Review...'
-        rows="10"
-        className="form-control"
         defaultValue={movie.review ? movie.review.content : ""}
         ref={register({
           required: "No review text",

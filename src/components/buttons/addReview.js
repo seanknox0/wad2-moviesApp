@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ReviewButton = ({ movie }) => {
   return (
-    //<Button
      <Link
         to={{
           pathname: `/reviews/form`,
@@ -13,9 +12,10 @@ const ReviewButton = ({ movie }) => {
           }
        }}
      >
+    <Button color="green">
     Write a Review
+    </Button>
     </Link>
-    //</Button>
   );
 };
 

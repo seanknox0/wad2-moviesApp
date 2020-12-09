@@ -11,6 +11,7 @@ const AddToWatchListButton = ({ movie }) => {
   };
   return (
     <Button
+    color="green"
       onClick={handleAddToWatchList}
     >
       Add to Watch List

@@ -1,4 +1,5 @@
 import React from "react";
+import { Menu, Segment, Dropdown } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,6 +38,11 @@ const SiteHeader = () => {
           <li className="nav-item">
             <Link className="nav-link text-white" to="/movies/watchlist">
               Watch-List
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/people/">
+              People
             </Link>
           </li>
         </ul>

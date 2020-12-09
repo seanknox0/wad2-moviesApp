@@ -13,7 +13,7 @@ const MovieCard = ({movie, action}) => {
       <Card>
       <Link to={`/movies/${movie.id}`}>
         <Image
-          className="card-img-tag center "
+          className="card-img-tag center"
           alt={movie.title}
           src={
             movie.poster_path

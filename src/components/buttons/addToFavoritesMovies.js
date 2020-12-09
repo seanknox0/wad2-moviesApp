@@ -11,6 +11,7 @@ const AddToFavoriteButtonMovies = ({ movie }) => {
   };
   return (
     <Button
+    color="green"
       onClick={handleAddToFavoriteMovies}
     >
       Add to Favorites
