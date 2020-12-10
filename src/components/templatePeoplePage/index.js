@@ -1,21 +1,29 @@
-import React, { useState } from "react";
-import PeopleList from "../peopleList";
-import PersonFilterControls from "../personFilterControls";
-import HeaderPersonList from "../headerPersonList";
+import React from "react";
+import { Image } from 'semantic-ui-react'
+import PersonHeader from '../headerPerson'
+import "./personPage.css";
 
-const PersonListPageTemplate = ({people, title}) => {
-  const setNameFilter = useState("");
-  const handleChange = (type, value) => {
-    if (type === "name") setNameFilter(value);
-  }
-
+const TemplatePeoplePage = ({ person, children }) => {
   return (
     <>
-      <HeaderPersonList title={title} />
-      <PersonFilterControls onUserInput={handleChange}/>
-      <PeopleList people={people}/>
+      <PersonHeader person={person} />
+      <div className="row">
+        <div className="col-3">
+        <Image
+          bordered
+          src={
+            person.profile_path
+              ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+              : "./film-poster-placeholder.png"
+          }
+          className="person"
+          alt={person.name}
+        />
+        </div>
+        <div className="col-9">{children}</div>
+      </div>
     </>
   );
 };
 
-export default PersonListPageTemplate ;
+export default TemplatePeoplePage;

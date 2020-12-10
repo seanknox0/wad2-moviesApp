@@ -16,7 +16,7 @@ const PeopleCard = ({person}) => {
           src={
             person.poster_path
               ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
-              : "./person-poster-placeholder.png"
+              : "./film-poster-placeholder.png"
           }
         />
         </Link>
