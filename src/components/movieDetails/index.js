@@ -5,8 +5,9 @@ import "./movieDetails.css";
 export default ({ movie }) => {
   return (
     <>
-      <Header as="h2">Overview</Header>
-      <Segment>{movie.overview}</Segment>
+      <Segment>
+      <Header as="h3">Overview</Header>{movie.overview}
+      <Header as="h3">Movie Details</Header>
       <List>
        <List.Item><b>Runtime (min.): </b>{movie.runtime}</List.Item>
        <List.Item><b>Release Date: </b>{movie.release_date}</List.Item>
@@ -35,6 +36,7 @@ export default ({ movie }) => {
         ))}
        </List.Item>
       </List>
+      </Segment>
     </>
   );
 };

@@ -6,6 +6,7 @@ const PersonFilterControls = props => {
     e.preventDefault();
     props.onUserInput(type, value);
   };
+
   const handleTextChange = e => {
     handleChange(e, "name", e.target.value);
   };
@@ -14,7 +15,7 @@ const PersonFilterControls = props => {
     <div className="row bg-success">
       <div className="col-md-12">
         <h4>
-          <span>List Filtering:</span>
+          <span>Search for a Person: </span>
           <input
             type="text"
             placeholder="Name Search"

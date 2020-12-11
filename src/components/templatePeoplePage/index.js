@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from 'semantic-ui-react'
 import PersonHeader from '../headerPerson'
-import "./personPage.css";
+import "./peoplePage.css";
 
 const TemplatePeoplePage = ({ person, children }) => {
   return (
@@ -10,7 +10,8 @@ const TemplatePeoplePage = ({ person, children }) => {
       <div className="row">
         <div className="col-3">
         <Image
-          bordered
+          rounded
+          size="medium"
           src={
             person.profile_path
               ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`

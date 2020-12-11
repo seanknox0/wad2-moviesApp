@@ -1,6 +1,5 @@
 import React from "react";
 import 'semantic-ui-css/semantic.min.css'
-import { Segment } from 'semantic-ui-react';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"    // CHANGED
 import FavoriteMoviesPage from './pages/favoriteMoviesPage'
@@ -17,6 +16,7 @@ import WatchListPage from "./pages/watchListPage";
 import PopularMoviesPage from "./pages/popularMoviesPage";
 import RatedMoviesPage from "./pages/topratedMoviesPage";
 import PopularPeoplePage from "./pages/popularPeoplePage";
+import PersonPage from "./pages/personDetailsPage";
 
 const App = () => {
   return (
@@ -34,6 +34,7 @@ const App = () => {
             <Route path="/reviews/:id" component={MovieReviewPage} /> 
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <Route exact path="/movies/watchlist" component={WatchListPage} />
+            <Route path="/person/:id" component={PersonPage} />
             <Route path="/movies/:id" component={MoviePage} />
             <Route path="/person" component={PopularPeoplePage} />
             <Route path="/" component={HomePage} />

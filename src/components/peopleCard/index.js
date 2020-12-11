@@ -8,16 +8,18 @@ const PeopleCard = ({person}) => {
   return (
     <div className="col-sm-3">
       <div className="card bg-white">
+        <div class="card-space">
       <Card>
       <Link to={`/person/${person.id}`}>
         <Image
-          className="card-img-tag center"
-          alt={person.name}
+          bordered
           src={
-            person.poster_path
+            person.profile_path
               ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
               : "./film-poster-placeholder.png"
           }
+          className="card-img-tag center"
+          alt={person.name}
         />
         </Link>
         <div className="card-body">
@@ -30,6 +32,7 @@ const PeopleCard = ({person}) => {
           </Card.Content>
           </div>
         </Card>
+        </div>
       </div>
     </div>
   );

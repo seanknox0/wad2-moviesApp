@@ -4,12 +4,14 @@ import {MoviesContext} from '../contexts/moviesContext'
 
 const PopularPeoplePage = () => {
   const context = useContext(MoviesContext);
-  const people = context.popularPeople.filter( p => p.people );
+  const person = context.popularPeople.filter(((m) => { 
+    return !("favorite" in m);
+  }));
 
   return (
     <PersonListPageTemplate
       title={"Popular People"}
-      people={people}
+      person={person}
     />
   );
 };
