@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Table } from "semantic-ui-react";
 import { getCreditsCast } from "../../api/tmdb-api";
 import { getCreditsCrew } from "../../api/tmdb-api";
@@ -32,7 +33,19 @@ export default ({ movie }) => {
       {cast.map(cast => {
           return (
             <Table.Row key={cast.id}>
-              <Table.Cell>{cast.name}</Table.Cell>
+              <div className="person">
+              <Link
+                    to={{
+                      pathname: `/person/${cast.id}`,
+                      state: {
+                        person: cast,
+                        movie: movie
+                      }
+                    }}
+                  >
+                  <Table.Cell>{cast.name}</Table.Cell>
+                  </Link>
+                  </div>
               <Table.Cell>{cast.character}</Table.Cell>
             </Table.Row>
           );

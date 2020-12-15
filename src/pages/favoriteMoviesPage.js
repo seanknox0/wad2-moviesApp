@@ -10,7 +10,7 @@ const FavoriteMoviesPage = props => {
   const favoritesToprated = context.toprated.filter( m => m.favorite )
   favoritesMovies=favoritesMovies.concat(favoritesPopular)
   favoritesMovies=favoritesMovies.concat(favoritesToprated)
-  // Check for duplicates
+  // Check for duplicates, from website (check readme file)
   const uniqueMovies = Array.from(new Set(favoritesMovies.map(m => m.id)))
   .map(id => {
     return favoritesMovies.find(m => m.id === id)
