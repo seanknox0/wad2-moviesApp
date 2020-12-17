@@ -59,7 +59,7 @@ Name: Sean Knox
 ![][movieDetail]
 >Added the show credits button to display the credits of the movie.
 
-![][moviesCredits]
+![][movieCredits]
 >Displays 2 tables, one for crew and one for cast. Shows their job and character played. 
 
 ![][movieReviews]
@@ -122,7 +122,7 @@ https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with
 [popularPeople]: ./public/popularPeople.png
 [peopleDetails]: ./public/peopleDetails.png
 [movieDetail]: ./public/movieDetail.png
-[moviesCredits]: ./public/moviesCredits.png
-[movieReviews]: ./public/movieReview.png
+[movieCredits]: ./public/movieCredits.png
+[movieReviews]: ./public/movieReviews.png
 [writeReview]: ./public/writeReview.png
 [cardUpdate]: ./public/cardUpdate.png
