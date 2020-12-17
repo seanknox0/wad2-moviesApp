@@ -41,11 +41,36 @@ Name: Sean Knox
 
 ...... Insert screenshots of the new/modified views you have added to the Movies Fan app. Include a caption for each one clearly stating its purpose and any user interaction it supports ........
 
-![][movieDetail]
->Shows detailed information on a movie. Clicking the 'Show Reviews' button will display extracts from critic reviews.
+![][popularMovies]
+>Shows the most popular movies right now, can add to favourites and search based on text and genre. Details can be viewed by clicking card.
 
-![][review]
->Shows the full text for a movie review. 
+![][topratedMovies]
+>Shows the top rated movies of all time, can add to favourites and search based on text and genre. Details can be viewed by clicking card.
+
+![][watchList]
+>Shows the users watch list of upcoming movies. A review can also be written for when the user is done watching the movie. Details can be checked.
+
+![][popularPeople]
+>Shows the most popular people in the movies industry, picture and popularity displayed. Details can be checked.
+
+![][peopleDetails]
+>Shows personal details of a person. Including biography, birthplace etc.
+
+![][movieDetail]
+>Added the show credits button to display the credits of the movie.
+
+![][moviesCredits]
+>Displays 2 tables, one for crew and one for cast. Shows their job and character played. 
+
+![][movieReviews]
+>Updated table with Semantic UI.
+
+![][writeReview]
+>Updated the form with Semantic UI.
+
+![][cardUpdate]
+>Updated the cards with Semantic UI.
+
 
 ## Routing.
 
@@ -63,11 +88,14 @@ Name: Sean Knox
 
 .... Use screenshots to illustrate where data hyperlinking is present in your views - include captions.
 
-![][cardLink]
-> Clicking a card causes the display of that movie's details.
+![][movieCardLink]
+>Clicking the movie card will display movie details.
 
-![][reviewLink]
->Clicking the 'Full Review' for a review extract will display the full text of the review
+![][peopleCardLink]
+>Clicking the people card will display people details.
+
+![][peopleLink]
+>Clicking the link of a person in the table will display people details.
 
 ## Independent learning (If relevant).
 
@@ -85,3 +113,16 @@ https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with
 [reviewLink]: ./public/reviewLink.png
 [cardLink]: ./public/cardLink.png
 [stories]: ./public/storybook.png
+[movieCardLink]: ./public/movieCardLink.png
+[peopleCardLink]: ./public/peopleCardLink.png
+[peopleLink]: ./public/peopleLink.png
+[topratedMovies]: ./public/topratedMovies.png
+[popularMovies]: ./public/popularMovies.png
+[watchList]: ./public/watchList.png
+[popularPeople]: ./public/popularPeople.png
+[peopleDetails]: ./public/peopleDetails.png
+[movieDetail]: ./public/movieDetail.png
+[moviesCredits]: ./public/moviesCredits.png
+[movieReviews]: ./public/movieReview.png
+[writeReview]: ./public/writeReview.png
+[cardUpdate]: ./public/cardUpdate.png
