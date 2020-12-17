@@ -36,6 +36,7 @@ Name: Sean Knox
 ....... Insert a screenshot from the Storybook UI, hi-light stories relating to new/modified components you developed - see example screenshot below] .......
 
 ![][stories]
+>All in screenshot have been added.
 
 ### UI Design.
 
@@ -107,12 +108,7 @@ https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with
 
 ---------------------------------
 
-[model]: ./data.jpg
-[movieDetail]: ./public/movieDetail.png
-[review]: ./public/review.png
-[reviewLink]: ./public/reviewLink.png
-[cardLink]: ./public/cardLink.png
-[stories]: ./public/storybook.png
+[stories]: ./public/stories.png
 [movieCardLink]: ./public/movieCardLink.png
 [peopleCardLink]: ./public/peopleCardLink.png
 [peopleLink]: ./public/peopleLink.png
