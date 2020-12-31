@@ -1,5 +1,5 @@
 import React from "react";
-import Movie from "../movieCard/";
+import Movie from "../movieCard";
 import "./movieList.css";
 
 const MovieList = ({movies, action}) => {

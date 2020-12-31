@@ -3,7 +3,6 @@ import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
-import Credits from "../components/movieCredits";
 import useMovie from "../hooks/useMovie";
 
 const MoviePage = props => {
@@ -16,25 +15,6 @@ const MoviePage = props => {
         <PageTemplate movie={movie}>
           <MovieDetails movie={movie} />
         </PageTemplate>
-        <div className="row">
-          <div className="col-12 ">
-            {!props.history.location.pathname.endsWith("/credits") ? (
-              <Link
-                className="btn btn-primary btn-block active"
-                to={`/movies/${id}/credits`}
-              >
-                Show Credits
-              </Link>
-            ) : (
-              <Link
-                className="btn btn-primary btn-block active"
-                to={`/movies/${id}`}
-              >
-                Hide Credits
-              </Link>
-            )}
-          </div>
-        </div>
         <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (
@@ -57,10 +37,6 @@ const MoviePage = props => {
         <Route
           path={`/movies/:id/reviews`}
           render={props => <MovieReviews movie={movie} {...props} />}
-        />
-        <Route
-          path={`/movies/:id/credits`}
-          render={props => <Credits movie={movie} {...props} />}
         />
       </>
     ) : (
