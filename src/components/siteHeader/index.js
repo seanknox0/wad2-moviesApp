@@ -15,18 +15,8 @@ const SiteHeader = () => {
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/toprated">
-              Top Rated
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/upcoming">
-              Upcoming
-            </Link>
-            </li>
-            <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/popular">
-              Popular
+            <Link className="nav-link text-white" to="/movies">
+              All Movies
             </Link>
           </li>
           <li className="nav-item">
@@ -35,13 +25,13 @@ const SiteHeader = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/watchlist">
-              Watch-List
+            <Link className="nav-link text-white" to="/login">
+              Login
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/person">
-              People
+            <Link className="nav-link text-white" to="/signup">
+              Signup
             </Link>
           </li>
         </ul>

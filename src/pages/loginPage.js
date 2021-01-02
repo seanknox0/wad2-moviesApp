@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Header, Button } from 'semantic-ui-react';
 import { Redirect } from "react-router-dom";
 import { AuthContext } from '../contexts/authContext';
 import { Link } from "react-router-dom";
@@ -21,7 +22,7 @@ const LoginPage = props => {
   }
   return (
     <>
-      <h2>Login page</h2>
+      <Header as="h2">Login page</Header>
       <p>You must log in to view the protected pages </p>
       <input id="username" placeholder="user name" onChange={e => {
         setUserName(e.target.value);
@@ -30,7 +31,7 @@ const LoginPage = props => {
         setPassword(e.target.value);
       }}></input><br />
       {/* Login web form  */}
-      <button onClick={login}>Log in</button>
+      <Button color="blue" onClick={login}>Log in</Button>
       <p>Not Registered?
       <Link to="/signup">Sign Up!</Link></p>
     </>

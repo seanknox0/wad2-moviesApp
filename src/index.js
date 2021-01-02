@@ -2,9 +2,11 @@ import React from "react";
 import 'semantic-ui-css/semantic.min.css'
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"
+import WelcomePage from './pages/welcomePage';
 import FavoriteMoviesPage from './pages/favoriteMoviesPage'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signUpPage";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -28,8 +30,10 @@ const App = () => {
             <Route path="/reviews/:id" component={MovieReviewPage} /> 
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <Route path="/movies/:id" component={MoviePage} />
-            <Route path="/home" component={HomePage} />
-            <Route path="/" component={LoginPage} />
+            <Route path="/movies" component={HomePage} />
+            <Route path="/signup" component={SignUpPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/" component={WelcomePage} />
             <Redirect from="*" to="/" />
           </Switch>
         </GenresContextProvider>

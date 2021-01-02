@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Header, Button } from 'semantic-ui-react';
 import { Redirect } from "react-router-dom";
 import { AuthContext } from '../contexts/authContext';
 
@@ -24,7 +25,7 @@ const SignUpPage = props => {
 
   return (
     <>
-      <h2>SignUp page</h2>
+      <Header as="h2">SignUp page</Header>
       <p>You must register a username and password to log in </p>
       <input value={userName} placeholder="user name" onChange={e => {
         setUserName(e.target.value);
@@ -36,7 +37,7 @@ const SignUpPage = props => {
         setPasswordAgain(e.target.value);
       }}></input><br />
       {/* Login web form  */}
-      <button onClick={register}>Register</button>
+      <Button color="blue" onClick={register}>Register</Button>
     </>
   );
 };
