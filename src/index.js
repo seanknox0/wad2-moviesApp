@@ -1,19 +1,22 @@
 import React from "react";
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css';
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"
+import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import WelcomePage from './pages/welcomePage';
-import FavoriteMoviesPage from './pages/favoriteMoviesPage'
+import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
+import FavoriteMoviesPage from './pages/favoriteMoviesPage';
+import WatchListPage from "./pages/watchListPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import MovieReviewPage from "./pages/movieReviewPage";
-import SiteHeader from './components/siteHeader'
+import SiteHeader from './components/siteHeader';
+import PrivateRoute from './routes/privateRoute';
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage'
+import AddMovieReviewPage from './pages/addMovieReviewPage';
 import AuthContextProvider from "./contexts/authContext";
 
 const App = () => {
@@ -28,9 +31,11 @@ const App = () => {
           <Switch>
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} /> 
-            <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+            <PrivateRoute path="/upcoming" component={UpcomingMoviesPage} />
+            <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+            <PrivateRoute exact path="/watchlist" component={WatchListPage} />
             <Route path="/movies/:id" component={MoviePage} />
-            <Route path="/movies" component={HomePage} />
+            <PrivateRoute path="/movies" component={HomePage} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/" component={WelcomePage} />
