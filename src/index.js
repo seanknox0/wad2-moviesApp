@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import WelcomePage from './pages/welcomePage';
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import FavoriteMoviesPage from './pages/favoriteMoviesPage';
+import PopularPeoplePage from "./pages/popularPeoplePage";
+import PersonPage from "./pages/personDetailsPage";
 import WatchListPage from "./pages/watchListPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import LoginPage from "./pages/loginPage";
@@ -32,9 +34,11 @@ const App = () => {
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} /> 
             <PrivateRoute path="/upcoming" component={UpcomingMoviesPage} />
+            <PrivateRoute path="/person" component={PopularPeoplePage} />
             <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <PrivateRoute exact path="/watchlist" component={WatchListPage} />
             <Route path="/movies/:id" component={MoviePage} />
+            <Route path="/person/:id" component={PersonPage} />
             <PrivateRoute path="/movies" component={HomePage} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/login" component={LoginPage} />

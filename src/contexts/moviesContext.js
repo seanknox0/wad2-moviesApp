@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer, useState } from "react";
-import { getMovies, getUpcomingMovies } from "../api/movie-api";
+import { getMovies, getUpcomingMovies, getPopularPeople } from "../api/movie-api";
 
 export const MoviesContext = createContext(null);
 
@@ -10,19 +10,26 @@ const reducer = (state, action) => {
         upcoming: state.upcoming.map((m) =>
           m.id === action.payload.movie.id ? { ...m, watchlist: true } : m
         ),
-        movies: [...state.movies]
+        movies: [...state.movies],
+        popularPeople: [...state.popularPeople]
       };
     case "add-favorite-movies":
       return {
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
-        upcoming: [...state.upcoming]
+        upcoming: [...state.upcoming],
+        popularPeople: [...state.popularPeople]
       };
     case "load":
-      return { movies: action.payload.movies, upcoming: [...state.upcoming] };
+      return { movies: action.payload.movies, upcoming: [...state.upcoming], popularPeople: [...state.popularPeople] };
+      
     case "load-upcoming":
-      return { upcoming: action.payload.movies, movies: [...state.movies] };
+      return { upcoming: action.payload.movies, movies: [...state.movies], popularPeople: [...state.popularPeople] };
+
+    case "load-popularPeople":
+      return { popularPeople: action.payload.person, upcoming: [...state.upcoming], movies: [...state.movies] };
+
     case "add-review-movies":
       return {
         movies: state.movies.map((m) =>
@@ -30,7 +37,8 @@ const reducer = (state, action) => {
             ? { ...m, review: action.payload.review }
             : m
         ),
-        upcoming: [...state.upcoming]
+        upcoming: [...state.upcoming],
+        popularPeople: [...state.popularPeople]
       };
     default:
       return state;
@@ -38,7 +46,7 @@ const reducer = (state, action) => {
 };
 
 const MoviesContextProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [] });
+  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], popularPeople: [] });
   const [authenticated, setAuthenticated] = useState(false);
 
   const addToFavoritesMovies = (movieId) => {
@@ -69,11 +77,19 @@ const MoviesContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    getPopularPeople().then((person) => {
+      dispatch({ type: "load-popularPeople", payload: { person } });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
+        popularPeople: state.popularPeople,
         setAuthenticated,
         addToWatchList: addToWatchList,
         addToFavoritesMovies: addToFavoritesMovies,

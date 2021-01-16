@@ -62,3 +62,21 @@ export const getUpcomingMovies = () => {
     }
     ).then(res => res.json());
 };
+
+export const getPerson = () => {
+    return fetch(
+       '/api/person', {headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+};
+
+export const getPopularPeople = () => {
+    return fetch(
+       '/api/person', {headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+};
