@@ -47,7 +47,7 @@ export const getGenres = () => {
 
 export const getMovieReviews = () => {
     return fetch(
-       '/api/reviews',{headers: {
+       '/api/movies',{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -56,7 +56,7 @@ export const getMovieReviews = () => {
 
 export const getUpcomingMovies = () => {
     return fetch(
-       '/api/upcoming',{headers: {
+       '/api/upcoming', {headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
