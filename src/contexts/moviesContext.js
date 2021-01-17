@@ -23,7 +23,7 @@ const reducer = (state, action) => {
       };
     case "load":
       return { movies: action.payload.movies, upcoming: [...state.upcoming], popularPeople: [...state.popularPeople] };
-      
+
     case "load-upcoming":
       return { upcoming: action.payload.movies, movies: [...state.movies], popularPeople: [...state.popularPeople] };
 
