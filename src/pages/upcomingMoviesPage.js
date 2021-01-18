@@ -8,6 +8,7 @@ const UpcomingMoviesPage = () => {
   const movies = context.upcoming.filter((m) => { 
     return !("watchlist" in m);
   });
+  console.log(movies);
 
   return (
     <PageTemplate
