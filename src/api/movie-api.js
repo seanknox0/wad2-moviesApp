@@ -65,7 +65,7 @@ export const getUpcomingMovies = () => {
 
 export const getPerson = () => {
     return fetch(
-       '/api/person/:id', {headers: {
+       '/api/person', {headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
