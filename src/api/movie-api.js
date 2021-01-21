@@ -27,9 +27,9 @@ export const getMovies = () => {
     ).then(res => res.json());
 };
 
-export const getMovie = () => {
+export const getMovie = id => {
     return fetch(
-       '/api/movies',{headers: {
+       '/api/movies/' + id, {headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -45,9 +45,9 @@ export const getGenres = () => {
     ).then(res => res.json());
 };
 
-export const getMovieReviews = () => {
+export const getMovieReviews = id => {
     return fetch(
-       '/api/movies',{headers: {
+       '/api/movies/' + id + '/reviews', {headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -63,9 +63,9 @@ export const getUpcomingMovies = () => {
     ).then(res => res.json());
 };
 
-export const getPerson = () => {
+export const getPerson = id => {
     return fetch(
-       '/api/person', {headers: {
+       '/api/person/' + id, {headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -79,4 +79,23 @@ export const getPopularPeople = () => {
       }
     }
     ).then(res => res.json());
+};
+
+export const getFavourites = username => {
+  return fetch(
+    '/api/users/' + username + '/favourites', {headers: {
+      'Authorization':window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
+export const addFavourite = (username, id) => {
+  return fetch(
+     '/api/users/' + username + '/favourites', {headers: {
+        'Content-Type': 'application/json'
+    },
+    method: 'post',
+    body: JSON.stringify({ 'id': id })
+}).then( res => res.json())
 };

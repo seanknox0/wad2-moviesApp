@@ -1,24 +1,27 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import MovieListPageTemplate from "../components/templateMovieListPage";
 import ReviewButton from '../components/buttons/addReview'
-import {MoviesContext} from '../contexts/moviesContext'
+import {AuthContext} from '../contexts/authContext';
 
-const FavoriteMoviesPage = props => {
-  const context = useContext(MoviesContext);
-  let favoritesMovies = context.movies.filter( m => m.favorite )
-  // Check for duplicates, from website (check readme file)
-  const uniqueMovies = Array.from(new Set(favoritesMovies.map(m => m.id)))
-  .map(id => {
-    return favoritesMovies.find(m => m.id === id)
-  })
+const FavoriteMoviesPage = () => {
+  const context = useContext(AuthContext);
+  const [favourites, setFavourites] = useState([]);
+
+  if (context.isAuthenticated) {
+    var userFavourites = async() => { 
+      let favouriteMovies = await context.userFavourites(context.userName);
+      return favouriteMovies;
+    }
+    userFavourites().then(userFav => setFavourites(userFav));
   
   return (
     <MovieListPageTemplate
-      movies={uniqueMovies}
+      movies={favourites}
       title={"Favorite Movies"}
       action={movie => <ReviewButton movie={movie} />}
     />
   );
+}
 };
 
 export default FavoriteMoviesPage;
