@@ -97,5 +97,24 @@ export const addFavourite = (username, id) => {
     },
     method: 'post',
     body: JSON.stringify({ 'id': id })
-}).then( res => res.json())
+}).then( res => res.json());
+};
+
+export const getWatchlater = username => {
+  return fetch(
+    '/api/users/' + username + '/watchlater', {headers: {
+      'Authorization':window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
+export const addWatchlater = (username, id) => {
+  return fetch(
+     '/api/users/' + username + '/watchlater', {headers: {
+        'Content-Type': 'application/json'
+    },
+    method: 'post',
+    body: JSON.stringify({ 'id': id })
+}).then( res => res.json());
 };

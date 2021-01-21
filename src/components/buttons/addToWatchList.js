@@ -1,23 +1,25 @@
 import React, { useContext } from "react";
 import { Button } from 'semantic-ui-react';
-import {MoviesContext} from "../../contexts/moviesContext";
+import {AuthContext} from "../../contexts/authContext";
+import {addWatchlater} from "../../api/movie-api";
 
-const AddToWatchListButton = ({ movie }) => {
-  const context = useContext(MoviesContext);
+const AddToWatchlistButton = ({ movie }) => {
+  const context = useContext(AuthContext);
 
-  const handleAddToWatchList = e => {
+  const handleAddToWatchlist = e => {
     e.preventDefault();
-    context.addToWatchList(movie.id);
+    addWatchlater(context.userName, movie.id);
   };
+
   return (
     <Button
     color="green"
-      onClick={handleAddToWatchList}
+      onClick={handleAddToWatchlist}
     >
-      Add to Watch List
-
+      Add to Watchlist
+    
     </Button>
   );
 };
 
-export default AddToWatchListButton;
+export default AddToWatchlistButton;

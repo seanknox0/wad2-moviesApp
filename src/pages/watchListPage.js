@@ -1,18 +1,26 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import MovieListPageTemplate from "../components/templateMovieListPage";
 import AddReviewButton from '../components/buttons/addReview'
-import {MoviesContext} from '../contexts/moviesContext'
+import {AuthContext} from '../contexts/authContext'
 
-const WatchListPage = props => {
-  const context = useContext(MoviesContext);
-  const watchList = context.upcoming.filter( m => m.watchlist )
+const WatchListPage = () => {
+  const context = useContext(AuthContext);
+  const [watchlater, setWatchlater] = useState([]);
+
+  if (context.isAuthenticated) {
+    var userWatchlater = async() => { 
+      let watchlaterMovies = await context.userWatchlater(context.userName);
+      return watchlaterMovies;
+    }
+    userWatchlater().then(userWatch => setWatchlater(userWatch));
   return (
     <MovieListPageTemplate
-      movies={watchList}
+      movies={watchlater}
       title={"Watch List"}
       action={movie => <AddReviewButton movie={movie} />}
     />
   );
+  }
 };
 
 export default WatchListPage;
